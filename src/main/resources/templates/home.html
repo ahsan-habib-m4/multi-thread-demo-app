@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Data Upload Application</title>
+		<script  th:src="@{/js/jquery.min.js}" ></script>
+		<script  th:src="@{/js/jquery.dataTables.min.js}" ></script>
+		<script  th:src="@{/js/dataTables.bootstrap5.min.js}" ></script>
+		<script  th:src="@{/js/bootstrap.bundle.min.js}" ></script>
+		
+		
+		<link rel="stylesheet" th:href="@{/css//bootstrap-icons.css}">
+		<link rel="stylesheet" th:href="@{/css/jquery.dataTables.min.css}">
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/css/docs.css}">
+		<link rel="stylesheet" th:href="@{/css/dataTables.bootstrap5.min.css}">
+		
+		<style type="text/css">
+			#overlay {
+			  position: fixed;
+			  display: none;
+			  width: 100%;
+			  height: 100%;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  background-color: rgba(0,0,0,0.5);
+			  z-index: 2;
+			  cursor: pointer;
+			}
+			
+			#text{
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  font-size: 50px;
+			  color: white;
+			  transform: translate(-50%,-50%);
+			  -ms-transform: translate(-50%,-50%);
+			}
+		</style>
+		
+    </head>
+    <body>
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">OrangeToolZ</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="/">Home</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div id="overlay">
+				<div id="text">
+				<div class="spinner-grow text-muted"></div>
+				<div class="spinner-grow text-primary"></div>
+				<div class="spinner-grow text-success"></div>
+				<div class="spinner-grow text-info"></div>
+				<div class="spinner-grow text-warning"></div>
+				<div class="spinner-grow text-danger"></div>
+				<div class="spinner-grow text-secondary"></div>
+				<div class="spinner-grow text-dark"></div>
+				<div class="spinner-grow text-light"></div>
+				</div>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-md-6 ">
+					<h3 class="">Import CSV file</h3>
+					<form method="POST" action="/upload" enctype="multipart/form-data" class="row row-cols-lg-auto g-3 align-items-center">
+						<div class="col-12">
+							<input class="form-control form-control-lg" name="fileInput" id="fileInput" type="file" required="required" >
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<table id=peopleTable class="table table-striped" style="width:100%">
+					     <thead>
+					         <tr>
+					             <th>People ID</th>
+					             <th>First name</th>
+					             <th>Last name</th>
+					             <th>Sex</th>
+					             <th>Email</th>
+					             <th>Phone</th>
+					             <th>Data of birth</th>
+					         </tr>
+					     </thead>
+					     <tbody>
+					         
+					      </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script  th:src="@{/js/upload.js}" ></script>
+    </body>
+</html>
